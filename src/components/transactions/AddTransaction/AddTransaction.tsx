@@ -26,10 +26,7 @@ function AddTransaction() {
   };
 
   const handleChangeAmount = (event: any) => {
-    const numberRegex = /^[0-9\b]+$/;
-    if (event.target.value === '' || numberRegex.test(event.target.value)) {
-      setAmount(event.target.value);
-    }
+    setAmount(event.target.value);
   };
 
   const handleDescription = (event: any) => {
@@ -59,6 +56,8 @@ function AddTransaction() {
               <Typography variant="h5">Amount</Typography>
             </ThemeProvider>
           </p>
+        </div>
+        <div className="add-transaction-amount">
           <div className="add-transaction-amount-input-field">
             <FormControl sx={{ m: 1 }} variant="standard">
               <Input
@@ -66,9 +65,12 @@ function AddTransaction() {
                 type="number"
                 onChange={handleChangeAmount}
                 value={amount}
+                style={{ width: 80, fontSize: 22 }}
               />
             </FormControl>
           </div>
+        </div>
+        <div className="add-transaction-amount">
           <p className="currency-name">€</p>
         </div>
       </div>
@@ -76,8 +78,8 @@ function AddTransaction() {
         <div className="add-transaction-btn">
           <Button className="submit-btn" variant="contained" color="success" onClick={handleAddTransaction}>Add transaction</Button>
         </div>
-        <div className="add-transaction-reset">
-          <Button className="cancel-btn-adf" variant="contained" onClick={resetForm}>Reset</Button>
+        <div className="add-transaction-btn">
+          <Button className="cancel-btn-reset" variant="contained" onClick={resetForm}>Reset</Button>
         </div>
       </div>
     </div>

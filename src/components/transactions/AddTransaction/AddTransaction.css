@@ -22,40 +22,30 @@
 }
 
 .add-transaction-amount {
-  left: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.add-transaction-amount-input-name {
-  font-size: 1.5rem;
   float: left;
-  margin-left: 80px;
-  margin-top: 10px;
 }
 
 .currency-name {
-  font-size: 2rem;
-  float: right;
-  margin-top: -45px;
-  margin-right: 85px;
+  margin-top: 15px;
+  font-size: 1.5rem;
 }
 
-.add-transaction-amount-input-field {
-  margin-right: 100px;
+.add-transaction-amount-input-name {
+  font-size: 1rem;
+  float: left;
+  margin-left: 30px;
+  margin-top: 10px;
 }
 
 .form-btns {
-  top: 0px;
+  margin-top: 70px;
+  margin-left: 45%;
 }
 
 .add-transaction-btn {
-  left: 5%;
-  position: relative;
+  float: left;
 }
 
-.add-transaction-reset {
-  position: relative;
-  margin-top: -36px;
-  right: -30%;
+.submit-btn {
+  right: 10px;
 }
