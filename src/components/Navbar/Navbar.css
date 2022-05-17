@@ -1,18 +1,36 @@
 .navbar-container {
   height: 50px;
   width: 100%;
-  background-color: aquamarine;
 }
 
 .navbar-name {
-  background-color: rgb(178, 209, 85);
   height: 50px;
   width: 600px;
   position: static;
   font: 1.5em sans-serif;
+  float: left;
 }
 
 .p-navbar { 
   margin: 0;
   transform: translateY(30%);
+}
+
+.course {
+  margin-top: 10px;
+  top: 50px;
+  float: right;
+}
+
+.course-field {
+  float: left;
+}
+
+.course-name {
+  height: 10px;
+  margin-right: 10px;
+}
+
+.course-amount {
+  margin-top: -4px;
 }
