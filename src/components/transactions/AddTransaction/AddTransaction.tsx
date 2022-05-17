@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import TextField from '@mui/material/TextField/TextField';
 import FormControl from '@mui/material/FormControl/FormControl';
@@ -12,16 +13,28 @@ import {
 import Typography from '@mui/material/Typography';
 
 import './AddTransaction.css';
+import { v4 as uuidv4 } from 'uuid';
 import capitalizeFirstLetter from '../../../helpers/ capitalizeFirstLetter';
+import { TNewTransaction } from '../../types/types';
+import { addTransaction } from '../transactionsActions';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 function AddTransaction() {
+  const dispatch = useDispatch();
   const [amount, setAmount] = useState<number | string>('');
   const [description, setDescription] = useState<string>('');
 
   const handleAddTransaction = () => {
+    if (amount === '' || description === '' || amount === undefined || amount === '') return;
+    const newTransaction: TNewTransaction = {
+      id: uuidv4(),
+      amount: Number(amount),
+      description,
+      createdAt: new Date(),
+    };
+    dispatch(addTransaction(newTransaction));
     resetForm();
   };
 
