@@ -13,3 +13,9 @@ export type TTransactionAction = {
 export type TTransactions = {
   transactions: Array<TNewTransaction>
 };
+
+export type TTransactionsOnList = {
+  transactions: {
+    transactions: Array<TNewTransaction>
+  }
+};

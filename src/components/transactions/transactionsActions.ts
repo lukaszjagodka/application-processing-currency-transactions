@@ -4,3 +4,8 @@ export const addTransaction = (payload: TNewTransaction) => ({
   type: 'ADD_TRANSACTION',
   payload,
 });
+
+export const deleteTransaction = (payload: string) => ({
+  type: 'DELETE_TRANSACTION',
+  payload,
+});

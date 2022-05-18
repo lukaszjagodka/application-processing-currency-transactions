@@ -12,6 +12,10 @@ const transactionsReducer = (state: TTransactions = initialState, action: TTrans
         ...state,
         transactions: [action.payload, ...state.transactions],
       };
+    case 'DELETE_TRANSACTION':
+      const index = state.transactions.findIndex((item) => item.id === action.payload);
+      if (index !== -1) { state.transactions.splice(index, 1); }
+      return state;
     default:
       return state;
   }
