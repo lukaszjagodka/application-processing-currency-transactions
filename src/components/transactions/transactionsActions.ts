@@ -13,3 +13,7 @@ export const deleteTransaction = (payload: string) => ({
 export const highestTransaction = () => ({
   type: 'HIGHEST_TRANSACTION',
 });
+
+export const sumTransactions = () => ({
+  type: 'SUM_TRANSACTIONS',
+});

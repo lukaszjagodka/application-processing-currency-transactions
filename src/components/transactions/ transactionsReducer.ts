@@ -4,6 +4,7 @@ import { TTransactionAction, TTransactions } from '../types/types';
 const initialState = {
   transactions: [],
   highest: {},
+  sum: 0,
 };
 
 const transactionsReducer = (state: TTransactions = initialState, action: TTransactionAction) => {
@@ -22,6 +23,12 @@ const transactionsReducer = (state: TTransactions = initialState, action: TTrans
       return {
         ...state,
         highest: max,
+      };
+    case 'SUM_TRANSACTIONS':
+      const sum = state.transactions.reduce((prev, current) => prev + +current.amount, 0);
+      return {
+        ...state,
+        sum,
       };
     default:
       return state;
