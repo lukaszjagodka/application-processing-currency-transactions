@@ -9,3 +9,7 @@ export const deleteTransaction = (payload: string) => ({
   type: 'DELETE_TRANSACTION',
   payload,
 });
+
+export const highestTransaction = () => ({
+  type: 'HIGHEST_TRANSACTION',
+});
