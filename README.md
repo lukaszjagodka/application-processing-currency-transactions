@@ -12,3 +12,13 @@
 * Eslint 
 * Material-ui
 * Css
+
+## What app can do?
+    
+* Displaying and defining the currency converter
+* Adding currency transactions
+* Displays a list of previous transactions
+* Deleting transactions
+* Adding up all items
+* Finding the largest transaction
+* Download the latest eur/pln course from the NBP API

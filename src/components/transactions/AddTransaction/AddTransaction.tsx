@@ -44,7 +44,7 @@ function AddTransaction() {
   };
 
   const handleChangeAmount = (event: any) => {
-    const numberRegex = /^[0-9\b]+$/;
+    const numberRegex = /^\d*\.?\d*$/;
     if (event.target.value === '' || numberRegex.test(event.target.value)) {
       setAmount(event.target.value);
     }
