@@ -3,7 +3,7 @@
 
 ![header image](https://raw.github.com/lukaszjagodka/application-processing-currency-transactions/master/screen.png)
 
-# [You can try youself!]()
+# [Try it yourself!](https://628697026a76251c608b0ff1--super-entremet-716c96.netlify.app/)
 
 ## Technologies
 * React
@@ -22,3 +22,4 @@
 * Adding up all items
 * Finding the largest transaction
 * Download the latest eur/pln course from the NBP API
+* Responsivity is her middle name
