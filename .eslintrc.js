@@ -47,6 +47,7 @@ module.exports = {
       quotes: ['error', 'single'],
       'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
       'no-unused-vars': 'off',
+      'no-console': 'off',
       'no-restricted-imports': 'off',
       'no-use-before-define': 'off',
       'import/prefer-default-export': 'off',

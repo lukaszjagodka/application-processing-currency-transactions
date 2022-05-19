@@ -3,7 +3,7 @@ import { TTransactionAction, TTransactions } from '../types/types';
 
 const initialState = {
   transactions: [],
-  highest: {},
+  highest: [],
   sum: 0,
 };
 
@@ -21,15 +21,17 @@ const transactionsReducer = (state: TTransactions = initialState, action: TTrans
         transactions: newList,
       };
     case 'HIGHEST_TRANSACTION':
-      let max;
+      let all;
       if (state.transactions.length === 0) {
-        max = 0;
+        all = 0;
       } else {
-        max = state.transactions.reduce((prev, current) => ((prev.amount > current.amount) ? prev : current));
+        const max = state.transactions.reduce((prev, current) => ((prev.amount > current.amount) ? prev : current));
+        all = state.transactions.filter((item) => item.amount === max.amount);
+        console.log(all);
       }
       return {
         ...state,
-        highest: max,
+        highest: all,
       };
     case 'SUM_TRANSACTIONS':
       const sum = state.transactions.reduce((prev, current) => prev + +current.amount, 0);

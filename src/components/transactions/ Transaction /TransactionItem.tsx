@@ -42,7 +42,7 @@ function TransactionItem(props: TProps) {
       </div>
       <div className="amount">
         <p className="amount-typo-euro">
-          {params.amount}
+          {(params.amount).toFixed(2)}
           {' '}
           EUR -
         </p>
