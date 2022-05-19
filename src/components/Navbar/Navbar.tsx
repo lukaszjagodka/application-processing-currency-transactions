@@ -17,7 +17,7 @@ theme = responsiveFontSizes(theme);
 function Navbar() {
   const dispatch = useDispatch();
   const account = useSelector((state: any) => state.account);
-  const [course, setCourse] = useState<number>();
+  const [course, setCourse] = useState<number>(account.course);
   const handleChangeCourse = (event: any) => {
     setCourse(event.target.value);
     dispatch(updateCourse(event.target.value));
