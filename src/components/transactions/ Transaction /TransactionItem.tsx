@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   createTheme,
   responsiveFontSizes,
@@ -7,32 +8,50 @@ import {
 import Typography from '@mui/material/Typography';
 
 import './TransactionItem.css';
+import Button from '@mui/material/Button/Button';
+import { TNewTransaction } from '../../types/types';
+import { deleteTransaction, highestTransaction, sumTransactions } from '../transactionsActions';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
-function TransactionItem() {
-  const [euro, setEuro] = useState<number>(0);
-  const [pln, setPln] = useState<number>(0);
+type TProps = {
+  params: TNewTransaction,
+}
+
+function TransactionItem(props: TProps) {
+  const dispatch = useDispatch();
+  const account = useSelector((state: any) => state.account);
+  const { params } = props;
+
+  const deleteItem = () => {
+    dispatch(deleteTransaction(params.id));
+    dispatch(highestTransaction());
+    dispatch(sumTransactions());
+  };
+
   return (
     <div className="transaction-item-container">
       <div className="transaction-item-name">
         <ThemeProvider theme={theme}>
-          <Typography className="transaction-item-name-typo" variant="h5">Transaction name</Typography>
+          <Typography className="transaction-item-name-typo" variant="h5">{params.description}</Typography>
         </ThemeProvider>
+        <div className="transaction-item-delete">
+          <Button variant="contained" className="delete-btn" size="small" color="error" onClick={deleteItem}>delete</Button>
+        </div>
       </div>
       <div className="amount">
         <p className="amount-typo-euro">
-          {euro}
+          {params.amount}
           {' '}
-          Euro -
+          EUR -
         </p>
       </div>
       <div className="amount">
         <p className="amount-typo-pln">
-          {pln}
+          {(params.amount * account.course).toFixed(2)}
           {' '}
-          Pln
+          PLN
         </p>
       </div>
     </div>
