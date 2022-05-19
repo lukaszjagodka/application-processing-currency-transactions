@@ -1,8 +1,19 @@
 .highest-transaction-container {
-  float: right;
   height: auto;
-  width: 520px;
   background-color: rgba(147, 147, 147, 0.401);
+}
+
+@media only screen and (min-width: 1300px) {
+  .highest-transaction-container {
+    margin-left: 5px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .highest-transaction-container {
+    width: 100%;
+    float: right;
+  }
 }
 
 .highest-transaction {
@@ -10,7 +21,7 @@
 }
 
 .h-t-name {
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: rgb(65, 65, 65);
   color: aliceblue;
 }

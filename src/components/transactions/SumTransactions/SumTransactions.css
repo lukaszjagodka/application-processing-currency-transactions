@@ -1,9 +1,17 @@
 .sum-transaction-container {
-  height: 50px;
+  height: auto;
   background-color: rgb(65, 65, 65);
   color: aliceblue;
 }
 
 .sum-transaction-name {
   padding: 10px;
+}
+
+@media only screen and (max-width: 1040) {
+  .sum-transaction-container  {
+    height: 100px !important;
+    width: 100% !important;
+    background-color: blue;
+  }
 }

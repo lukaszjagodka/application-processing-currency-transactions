@@ -8,8 +8,14 @@ function Dashboard() {
   return (
     <div className="dashboard-container">
       <Navbar />
-      <TransactionsList />
-      <RightColumn />
+      <div className="columns">
+        <div className="column">
+          <TransactionsList />
+        </div>
+        <div className="column">
+          <RightColumn />
+        </div>
+      </div>
     </div>
   );
 }
