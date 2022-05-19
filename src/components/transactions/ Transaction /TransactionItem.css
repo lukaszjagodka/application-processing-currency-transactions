@@ -9,16 +9,13 @@
 .transaction-item-name {
   background-color: rgb(65, 65, 65);
   color: aliceblue;
-}
-
-.transaction-item-name-typo {
-  left: 10px;
+  font-size: 25px;
   text-align: left;
-  position: relative;
+  padding-left: 20px;
 }
 
 .amount {
-  float: left;
+  text-align: left;
 }
 
 .amount-typo-euro {

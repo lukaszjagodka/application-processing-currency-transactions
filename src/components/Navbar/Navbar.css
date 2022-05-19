@@ -21,6 +21,7 @@
 
 .p-navbar { 
   margin: 0;
+  font-size: 24px;
   transform: translateY(30%);
 }
 

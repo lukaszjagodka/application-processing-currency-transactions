@@ -34,7 +34,7 @@ function TransactionItem(props: TProps) {
     <div className="transaction-item-container">
       <div className="transaction-item-name">
         <ThemeProvider theme={theme}>
-          <Typography className="transaction-item-name-typo" variant="h5">{params.description}</Typography>
+          <Typography variant="h6">{params.description}</Typography>
         </ThemeProvider>
         <div className="transaction-item-delete">
           <Button variant="contained" className="delete-btn" size="small" color="error" onClick={deleteItem}>delete</Button>
@@ -45,10 +45,7 @@ function TransactionItem(props: TProps) {
           {(params.amount).toFixed(2)}
           {' '}
           EUR -
-        </p>
-      </div>
-      <div className="amount">
-        <p className="amount-typo-pln">
+          {' '}
           {(params.amount * account.course).toFixed(2)}
           {' '}
           PLN

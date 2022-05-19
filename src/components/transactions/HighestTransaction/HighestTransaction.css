@@ -1,12 +1,7 @@
 .highest-transaction-container {
   height: auto;
   background-color: rgba(147, 147, 147, 0.401);
-}
-
-@media only screen and (min-width: 1300px) {
-  .highest-transaction-container {
-    margin-left: 5px;
-  }
+  
 }
 
 @media only screen and (max-width: 1300px) {
@@ -21,18 +16,25 @@
 }
 
 .h-t-name {
-  margin-top: 10px;
+  margin-top: 5px;
+  padding: 5px;
   background-color: rgb(65, 65, 65);
   color: aliceblue;
 }
 
 .h-t-amount {
-  margin-top: 10px;
+  padding: 2px;
+  text-align: left;
+  margin-top: 5px;
   font-size: 1.5rem;
+  margin-left: 20px;
 }
 
 .h-t-description {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  text-align: left;
   font-size: 1.5rem;
-  margin: 15px;
+  padding: 2px;
   word-break: break-all
 }
