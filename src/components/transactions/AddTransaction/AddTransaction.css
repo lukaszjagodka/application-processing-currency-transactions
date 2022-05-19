@@ -1,13 +1,16 @@
 .add-transaction-container {
   height: 260px;
+  box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
   border: 1px solid rgb(23, 23, 23);
   background-color: rgb(255, 255, 255);
+  
 }
 
 @media only screen and (min-width: 1300px) {
   .add-transaction-container {
-    margin-left: 5px;
-    width: 100%
+    width: 100%;
   }
 }
 
