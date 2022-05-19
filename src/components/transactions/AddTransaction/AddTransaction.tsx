@@ -12,11 +12,12 @@ import {
 } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
-import './AddTransaction.css';
 import { v4 as uuidv4 } from 'uuid';
 import capitalizeFirstLetter from '../../../helpers/capitalizeFirstLetter';
 import { TNewTransaction } from '../../types/types';
 import { addTransaction, highestTransaction, sumTransactions } from '../transactionsActions';
+
+import './AddTransaction.css';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -43,7 +44,10 @@ function AddTransaction() {
   };
 
   const handleChangeAmount = (event: any) => {
-    setAmount(event.target.value);
+    const numberRegex = /^[0-9\b]+$/;
+    if (event.target.value === '' || numberRegex.test(event.target.value)) {
+      setAmount(event.target.value);
+    }
   };
 
   const handleDescription = (event: any) => {

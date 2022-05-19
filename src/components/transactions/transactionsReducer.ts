@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-case-declarations */
 import { TTransactionAction, TTransactions } from '../types/types';
 
@@ -10,6 +11,8 @@ const initialState = {
 const transactionsReducer = (state: TTransactions = initialState, action: TTransactionAction) => {
   switch (action.type) {
     case 'ADD_TRANSACTION':
+      const { amount } = action.payload;
+      if (amount === 0) return state;
       return {
         ...state,
         transactions: [action.payload, ...state.transactions],
