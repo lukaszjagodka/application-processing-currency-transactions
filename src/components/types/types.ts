@@ -16,6 +16,17 @@ export type TTransactions = {
 
 export type TTransactionsOnList = {
   transactions: {
-    transactions: Array<TNewTransaction>
+    transactions: Array<TNewTransaction>,
+    highest: TNewTransaction,
+    sum: number
   }
 };
+
+export type TAccount = {
+  course: number
+}
+
+export type TAction = {
+  type: string;
+  payload?: any;
+}
