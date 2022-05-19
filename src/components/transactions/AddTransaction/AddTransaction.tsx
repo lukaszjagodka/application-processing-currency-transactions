@@ -14,7 +14,7 @@ import Typography from '@mui/material/Typography';
 
 import './AddTransaction.css';
 import { v4 as uuidv4 } from 'uuid';
-import capitalizeFirstLetter from '../../../helpers/ capitalizeFirstLetter';
+import capitalizeFirstLetter from '../../../helpers/capitalizeFirstLetter';
 import { TNewTransaction } from '../../types/types';
 import { addTransaction, highestTransaction, sumTransactions } from '../transactionsActions';
 
@@ -25,6 +25,7 @@ function AddTransaction() {
   const dispatch = useDispatch();
   const account = useSelector((state: any) => state.account);
   const [amount, setAmount] = useState<number>(1);
+  const [descLength, setDescLength] = useState<number>(50);
   const [description, setDescription] = useState<string>('');
 
   const handleAddTransaction = () => {
@@ -46,8 +47,10 @@ function AddTransaction() {
   };
 
   const handleDescription = (event: any) => {
-    const capitalizeDescription = capitalizeFirstLetter(event.target.value);
-    setDescription(capitalizeDescription);
+    if ((event.target.value).length <= descLength) {
+      const capitalizeDescription = capitalizeFirstLetter(event.target.value);
+      setDescription(capitalizeDescription);
+    }
   };
 
   const resetForm = () => {
