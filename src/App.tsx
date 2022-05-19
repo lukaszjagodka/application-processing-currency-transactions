@@ -8,10 +8,12 @@ import { fetchCourse } from './helpers/fetchCourse';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    const objCourse = fetchCourse();
-    objCourse.then((result) => {
-      dispatch(updateCourse(result));
-    });
+    const getCourse = async () => {
+      const response = await fetchCourse();
+      dispatch(updateCourse(response));
+    };
+
+    getCourse();
   }, []);
 
   return (
