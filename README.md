@@ -3,7 +3,7 @@
 
 ![header image](https://raw.github.com/lukaszjagodka/application-processing-currency-transactions/master/screen.png)
 
-# [You can try youself!](https://628697026a76251c608b0ff1--super-entremet-716c96.netlify.app/)
+# [Try it yourself!](https://628697026a76251c608b0ff1--super-entremet-716c96.netlify.app/)
 
 ## Technologies
 * React
