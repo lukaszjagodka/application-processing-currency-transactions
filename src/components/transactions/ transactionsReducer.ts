@@ -15,11 +15,18 @@ const transactionsReducer = (state: TTransactions = initialState, action: TTrans
         transactions: [action.payload, ...state.transactions],
       };
     case 'DELETE_TRANSACTION':
-      const index = state.transactions.findIndex((item) => item.id === action.payload);
-      if (index !== -1) { state.transactions.splice(index, 1); }
-      return state;
+      const newList = state.transactions.filter((item) => item.id !== action.payload);
+      return {
+        ...state,
+        transactions: newList,
+      };
     case 'HIGHEST_TRANSACTION':
-      const max = state.transactions.reduce((prev, current) => ((prev.amount > current.amount) ? prev : current));
+      let max;
+      if (state.transactions.length === 0) {
+        max = 0;
+      } else {
+        max = state.transactions.reduce((prev, current) => ((prev.amount > current.amount) ? prev : current));
+      }
       return {
         ...state,
         highest: max,
