@@ -26,7 +26,7 @@ function HighestTransaction() {
       {
         transactions.highest ? (
           transactions.highest.map((transactionObj: TNewTransaction) => (
-            <div className="highest-transaction">
+            <div className="highest-transaction" key={transactionObj.id}>
               <div className="h-t-amount">
                 <ThemeProvider theme={theme}>
                   <Typography variant="h5">
