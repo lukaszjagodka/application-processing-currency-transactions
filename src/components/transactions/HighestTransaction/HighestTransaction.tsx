@@ -6,7 +6,7 @@ import {
   ThemeProvider,
 } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { TTransactionsOnList } from '../../types/types';
+import { TNewTransaction, TTransactionsOnList } from '../../types/types';
 
 import './HighestTransaction.css';
 
@@ -24,41 +24,49 @@ function HighestTransaction() {
         </ThemeProvider>
       </div>
       {
-        transactions.transactions.length !== 0 ? (
-          <>
-            <div className="h-t-amount">
-              <ThemeProvider theme={theme}>
-                <Typography variant="h5">
-                  Amount:
-                  {' '}
-                  <b>{transactions.highest.amount}</b>
-                  {' '}
-                  <b>EUR</b>
-                </Typography>
-              </ThemeProvider>
+        transactions.highest ? (
+          transactions.highest.map((transactionObj: TNewTransaction) => (
+            <div className="highest-transaction" key={transactionObj.id}>
+              <div className="h-t-amount">
+                <ThemeProvider theme={theme}>
+                  <Typography variant="h5">
+                    Amount:
+                    {' '}
+                    <b>{transactionObj.amount}</b>
+                    {' '}
+                    <b>EUR</b>
+                  </Typography>
+                </ThemeProvider>
+              </div>
+              <div className="h-t-amount">
+                <ThemeProvider theme={theme}>
+                  <Typography variant="h5">
+                    Amount:
+                    {' '}
+                    <b>{(transactionObj.amount * account.course).toFixed(2)}</b>
+                    {' '}
+                    <b>PLN</b>
+                  </Typography>
+                </ThemeProvider>
+              </div>
+              <div className="h-t-description">
+                <ThemeProvider theme={theme}>
+                  <Typography variant="h5">
+                    Description:
+                    {' '}
+                    <b>{transactionObj.description}</b>
+                  </Typography>
+                </ThemeProvider>
+              </div>
             </div>
-            <div className="h-t-amount">
-              <ThemeProvider theme={theme}>
-                <Typography variant="h5">
-                  Amount:
-                  {' '}
-                  <b>{(transactions.highest.amount * account.course).toFixed(2)}</b>
-                  {' '}
-                  <b>PLN</b>
-                </Typography>
-              </ThemeProvider>
-            </div>
-            <div className="h-t-description">
-              <ThemeProvider theme={theme}>
-                <Typography variant="h5">
-                  Description:
-                  {' '}
-                  <b>{transactions.highest.description}</b>
-                </Typography>
-              </ThemeProvider>
-            </div>
-          </>
-        ) : ''
+          ))
+        ) : (
+          <div className="emptyList">
+            <p>
+              Please add new transaction
+            </p>
+          </div>
+        )
       }
     </div>
   );

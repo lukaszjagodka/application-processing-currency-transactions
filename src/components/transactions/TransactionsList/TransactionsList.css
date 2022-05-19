@@ -1,10 +1,23 @@
 .transactions-list-container {
-  height: 800px;
-  float: left;
-  width: 60%;
-  background-color: rgb(242, 242, 242);
+  height: auto;
+  background-color: rgb(192, 49, 49);
+}
+
+@media only screen and (min-width: 1300px) {
+  .transactions-list-container {
+    width: 64%;
+    float: left;
+    margin-bottom: 10px;
+  }
 }
 
 .transactions-list {
   margin: 10px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .transactions-list {
+    padding-bottom: 10px;
+  }
 }

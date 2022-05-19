@@ -3,6 +3,14 @@
   width: 100%;
 }
 
+@media only screen and (max-width: 850) {
+  .navbar-container {
+    height: 100px;
+    float: left;
+    margin-bottom: 10px;
+  }
+}
+
 .navbar-name {
   height: 50px;
   width: 600px;
