@@ -16,18 +16,19 @@ import './AddTransaction.css';
 import { v4 as uuidv4 } from 'uuid';
 import capitalizeFirstLetter from '../../../helpers/ capitalizeFirstLetter';
 import { TNewTransaction } from '../../types/types';
-import { addTransaction } from '../transactionsActions';
+import { addTransaction, highestTransaction, sumTransactions } from '../transactionsActions';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 function AddTransaction() {
   const dispatch = useDispatch();
-  const [amount, setAmount] = useState<number | string>('');
+  const account = useSelector((state: any) => state.account);
+  const [amount, setAmount] = useState<number>(1);
   const [description, setDescription] = useState<string>('');
 
   const handleAddTransaction = () => {
-    if (amount === '' || description === '' || amount === undefined || amount === '') return;
+    if (description === '') return;
     const newTransaction: TNewTransaction = {
       id: uuidv4(),
       amount: Number(amount),
@@ -35,6 +36,8 @@ function AddTransaction() {
       createdAt: new Date(),
     };
     dispatch(addTransaction(newTransaction));
+    dispatch(highestTransaction());
+    dispatch(sumTransactions());
     resetForm();
   };
 
@@ -48,7 +51,7 @@ function AddTransaction() {
   };
 
   const resetForm = () => {
-    setAmount('');
+    setAmount(1);
     setDescription('');
   };
 
@@ -64,11 +67,11 @@ function AddTransaction() {
           <TextField fullWidth id="outlined-basic" label="Transaction name" variant="outlined" value={description} onChange={handleDescription} />
         </div>
         <div className="add-transaction-amount">
-          <p className="add-transaction-amount-input-name">
+          <div className="add-transaction-amount-input-name">
             <ThemeProvider theme={theme}>
               <Typography variant="h5">Amount</Typography>
             </ThemeProvider>
-          </p>
+          </div>
         </div>
         <div className="add-transaction-amount">
           <div className="add-transaction-amount-input-field">
@@ -78,13 +81,43 @@ function AddTransaction() {
                 type="number"
                 onChange={handleChangeAmount}
                 value={amount}
-                style={{ width: 80, fontSize: 22 }}
+                style={{ width: 100, fontSize: 22 }}
+                inputProps={{ min: 1, step: 0.01 }}
               />
             </FormControl>
           </div>
         </div>
         <div className="add-transaction-amount">
-          <p className="currency-name">€</p>
+          <p className="currency-name">€ - </p>
+        </div>
+        <div className="add-transaction-amount">
+          <div className="add-transaction-course">
+            <TextField
+              hiddenLabel
+              id="filled-hidden-label-small"
+              value={account.course}
+              variant="filled"
+              size="small"
+              disabled
+              style={{ width: 60, fontSize: 22 }}
+            />
+          </div>
+        </div>
+        <div className="add-transaction-amount">
+          <p className="currency-name"> - </p>
+        </div>
+        <div className="add-transaction-amount">
+          <div className="add-transaction-course-pln">
+            <TextField
+              hiddenLabel
+              id="filled-hidden-label-small"
+              value={(amount * account.course).toFixed(2)}
+              variant="filled"
+              size="small"
+              disabled
+              style={{ width: 90, fontSize: 22 }}
+            />
+          </div>
         </div>
       </div>
       <div className="form-btns">
