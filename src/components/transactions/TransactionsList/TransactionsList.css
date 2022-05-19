@@ -1,0 +1,10 @@
+.transactions-list-container {
+  height: 800px;
+  float: left;
+  width: 60%;
+  background-color: rgb(242, 242, 242);
+}
+
+.transactions-list {
+  margin: 10px;
+}

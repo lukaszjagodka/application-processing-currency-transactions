@@ -1,0 +1,59 @@
+.add-transaction-container {
+  height: 260px;
+  float: right;
+  width: 518px;
+  border: 1px solid rgb(23, 23, 23);
+  background-color: rgb(255, 255, 255);
+}
+
+.add-transaction-name {
+  color: rgb(0, 0, 0);
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.add-transaction-form {
+  margin-top: 5px;
+}
+
+.add-transaction-desc {
+  margin-top: -5px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.add-transaction-amount {
+  float: left;
+}
+
+.currency-name {
+  margin-top: 15px;
+  font-size: 1.5rem;
+}
+
+.add-transaction-amount-input-name {
+  font-size: 1rem;
+  float: left;
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.add-transaction-course {
+  margin: 10px;
+}
+
+.add-transaction-course-pln {
+  margin: 10px;
+}
+.form-btns {
+  margin-top: 70px;
+  margin-left: 45%;
+}
+
+.add-transaction-btn {
+  float: left;
+}
+
+.submit-btn {
+  right: 10px;
+}

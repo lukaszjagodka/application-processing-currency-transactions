@@ -1,0 +1,23 @@
+.highest-transaction-container {
+  float: left;
+  height: auto;
+  width: 520px;
+  background-color: rgba(147, 147, 147, 0.401);
+}
+
+.h-t-name {
+  margin-top: 20px;
+  background-color: rgb(65, 65, 65);
+  color: aliceblue;
+}
+
+.h-t-amount {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.h-t-description {
+  font-size: 1.5rem;
+  margin: 15px;
+  word-break: break-all
+}
