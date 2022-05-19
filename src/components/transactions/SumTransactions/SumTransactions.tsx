@@ -8,7 +8,7 @@ import {
 import Typography from '@mui/material/Typography';
 import { TTransactionsOnList } from '../../types/types';
 
-import './SumTransaction.css';
+import './SumTransactions.css';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
