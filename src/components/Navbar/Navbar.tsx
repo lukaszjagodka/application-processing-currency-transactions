@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   createTheme,
@@ -9,16 +9,26 @@ import Typography from '@mui/material/Typography';
 
 import './Navbar.css';
 import Input from '@mui/material/Input/Input';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateCourse } from '../accountActions';
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const account = useSelector((state: any) => state.account);
   const [course, setCourse] = useState<number>();
-
   const handleChangeCourse = (event: any) => {
     setCourse(event.target.value);
+    dispatch(updateCourse(event.target.value));
   };
+
+  useEffect(() => {
+    if (account !== course) {
+      setCourse(account.course);
+    }
+  }, [account]);
 
   return (
     <div className="navbar-container">
@@ -43,6 +53,7 @@ function Navbar() {
               size="medium"
               style={{ width: 70, fontSize: 22 }}
               disableUnderline
+              inputProps={{ min: 1.01, step: 0.01 }}
             />
           </div>
         </div>
