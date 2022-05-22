@@ -6,7 +6,7 @@ export type TNewTransaction = {
 };
 
 export type TTransactionAction = {
-  type: string,
+  type?: string,
   payload?: any
 };
 
