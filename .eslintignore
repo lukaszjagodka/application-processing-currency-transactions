@@ -3,3 +3,5 @@ dist
 coverage
 .eslintrc.js
 App.test.tsx
+jest.config.ts
+jest.config.js

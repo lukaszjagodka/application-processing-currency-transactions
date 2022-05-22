@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import Collapse from '@mui/material/Collapse';
-import TransactionItem from '../ Transaction /TransactionItem';
+import TransactionItem from '../Transaction/TransactionItem';
 import { TNewTransaction, TTransactionsOnList } from '../../types/types';
 import SumTransaction from '../SumTransactions/SumTransactions';
 
