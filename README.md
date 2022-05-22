@@ -22,4 +22,4 @@
 * Adding up all items
 * Finding the largest transaction
 * Download the latest eur/pln course from the NBP API
-* Responsivity is her middle name
+* Responsive is her middle name
