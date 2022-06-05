@@ -32,7 +32,7 @@ function HighestTransaction() {
                   <Typography variant="h5">
                     Amount:
                     {' '}
-                    <b>{transactionObj.amount}</b>
+                    <b>{(transactionObj.amount).toFixed(2)}</b>
                     {' '}
                     <b>EUR</b>
                   </Typography>
